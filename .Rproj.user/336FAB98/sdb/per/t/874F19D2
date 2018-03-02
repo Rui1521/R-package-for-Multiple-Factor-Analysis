@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' RV\n#'\n#' To evaluate the similarities between two tables\n#'\n#' @param table1 a data frame or matrix\n#' @param table2 a data frame or matrix\n#'\n#' @return RV coefficient\n#'\n#' @export\n\nRV = function(table1, table2){\n  table1 = as.matrix(table1)\n  table2 = as.matrix(table2)\n  top = traceM((table1%*%t(table1))%*%(table2%*%t(table2)))\n  bottom = traceM((table1%*%t(table1))%*%(table1%*%t(table1))) * traceM((table2%*%t(table2))%*%(table2%*%t(table2)))\n  rv = top/sqrt(bottom)\n  rv\n}\n\ntraceM = function(M){\n  sum(diag(M))\n}\n",
+    "created" : 1519938739562.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "969417028",
+    "id" : "874F19D2",
+    "lastKnownWriteTime" : 1480309962,
+    "last_content_update" : 1480309962,
+    "path" : "~/Desktop/MFA/R/RV.R",
+    "project_path" : "R/RV.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

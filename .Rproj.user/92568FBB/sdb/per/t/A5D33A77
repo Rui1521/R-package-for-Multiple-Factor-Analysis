@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "# create a S4 class for mfa\n\nsetClass(\"mfa\",\n         slots = list(\n           data = \"data.frame\",\n           ncomps = \"numeric\",\n           sets = \"list\",\n           center = \"logical\",\n           scale = \"logical\",\n           singularValue = \"numeric\",\n           eigenvalues = \"numeric\",\n           cfs = \"matrix\",\n           pfs = \"list\",\n           loadings = \"matrix\",\n           a_weights = \"numeric\")\n)\n",
+    "created" : 1480309898593.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4223880955",
+    "id" : "A5D33A77",
+    "lastKnownWriteTime" : 1480486281,
+    "last_content_update" : 1480486281738,
+    "path" : "C:/Users/admin/Desktop/MFA/R/classes.R",
+    "project_path" : "R/classes.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

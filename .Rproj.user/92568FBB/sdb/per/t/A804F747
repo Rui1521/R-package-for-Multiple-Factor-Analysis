@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' print\n#'\n#' print\n#' @include classes.R\n#' @param object a `mfa` object\n#'\n#' @return A visualization table\n#' @rdname print\n#' @export\n\nsetMethod(\n  \"print\",\n  signature = \"mfa\",\n  function(x, compromise = TRUE,pfs = TRUE, loadings = TRUE, tablenumber = 1){\n    cat(\"Number of objects: \")\n    print(nrow(x@cfs))\n    cat(\"Number of tables: \")\n    print(length(x@sets))\n    cat(\"Number of components: \")\n    print(ifelse(is.null(x@ncomps),length(x@sets),x@ncomps))\n    if(compromise == TRUE){\n      compromise_plot(x)\n    }\n    if(pfs == TRUE){\n      pfs_plot(x, tablenumber)\n    }\n    if(loadings == TRUE){\n      loadings_plot(x, tablenumber)\n    }\n  }\n)\n\n#' compromise_plot\n#'\n#' compromise_plot\n#' @include classes.R\n#' @param object a `mfa` object\n#'\n#' @return A plot of the compromises\n#' @rdname compromise_plot\n#' @export\n\nsetGeneric(\n  \"compromise_plot\",\n  function(x) standardGeneric(\"compromise_plot\")\n)\n\n#' @describeIn compromise_plot plot of the tables\nsetMethod(\n  \"compromise_plot\",\n  signature = \"mfa\",\n  function(x){\n    # simple scatter-plot\n    plot(x@cfs[,1],x@cfs[,2],type = \"n\",\n         xlab = \"first component\", ylab = \"second component\")\n    # plot points\n    points(x@cfs[,1],x@cfs[,2], pch = 19, col = \"blue\")\n    # plot text\n    text(x@cfs[,1],x@cfs[,2],\n         pos = 4, col = \"gray50\")\n    # graphic title\n    title(\"Compromise of tables\")\n  }\n)\n\n#' pfs_table\n#'\n#' pfs_table\n#' @include classes.R\n#' @param object a `mfa` object\n#' @param tablenumber The number of the table to display partial\n#'        factor scores for.\n#'\n#' @return A plot of the partial factor scores for a table.\n#' @rdname pfs_table\n#' @export\n\nsetGeneric(\n  \"pfs_plot\",\n  function(x,tablenumber) standardGeneric(\"pfs_plot\")\n)\nsetMethod(\n  \"pfs_plot\",\n  signature = \"mfa\",\n  function(x,tablenumber){\n    i = tablenumber\n    # simple scatter-plot\n    plot(x@pfs[[i]][,1],x@pfs[[i]][,2],type = \"n\",\n         xlab = \"first component\", ylab = \"second component\")\n    # plot points for pfs\n    points(x@pfs[[i]][,1],x@pfs[[i]][,2], pch = 19, col = \"blue\")\n    # plot text for pfs\n    text(x@pfs[[i]][,1],x@pfs[[i]][,2], labels = rownames(x@data),\n         pos = 4, col = \"gray50\")\n    # graphic title\n    title(paste(\"Partial Factor Scores for table\",i))\n\n  }\n)\n\n#' loadings_plot\n#'\n#' loadings_plot\n#' @include classes.R\n#' @param object a `mfa` object\n#' @param tablenumber the table in the dataset that you wish to display\n#'        loadings for\n#'\n#' @return A plot of the variable loadings\n#' @rdname loadings_plot\n#' @export\n\nsetGeneric(\n  \"loadings_plot\",\n  function(x,tablenumber) standardGeneric(\"loadings_plot\")\n)\n\nsetMethod(\n  \"loadings_plot\",\n  signature = \"mfa\",\n  function(x,tablenumber){\n    i = tablenumber\n    # simple scatter-plot\n    plot(x@loadings[x@sets[[i]],][,1], x@loadings[x@sets[[i]],][,2],type = \"n\",\n         xlab = \"first component\", ylab = \"second component\")\n    # plot points for loadings\n    points(x@loadings[x@sets[[i]],][,1], x@loadings[x@sets[[i]],][,2], pch = 17, col = \"red\")\n    # plot text for loadings\n    text(x@loadings[x@sets[[i]],][,1], x@loadings[x@sets[[i]],][,2],labels = colnames(x@data[x@sets[[i]]]),\n         pos = 4, col = \"black\")\n    # graphic title\n    title(paste(\"Variable Loadings for table\",i))\n  }\n)\n\n",
+    "created" : 1480386635866.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1710211434",
+    "id" : "A804F747",
+    "lastKnownWriteTime" : 1480486257,
+    "last_content_update" : 1480486257770,
+    "path" : "C:/Users/admin/Desktop/MFA/R/print.R",
+    "project_path" : "R/print.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

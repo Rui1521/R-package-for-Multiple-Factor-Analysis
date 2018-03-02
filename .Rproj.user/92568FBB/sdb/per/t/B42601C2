@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Shinny app(MFA)\n#\n\nlibrary(shiny)\n\n\nshinyServer(function(input, output) {\n\n  output$distPlot <- renderPlot({\n    data = read.csv(\"wines.csv\")\n    data = data[,2:54]\n    sets = list(1:6,7:12,13:18,19:23,24:29,30:34,35:38,39:44,45:49,50:53)\n    obj = mfa(data = data, sets, center = TRUE, scale = TRUE)\n#Eigenvalues bar-chart\n    if (input$var == \"Eigenvalues\")\n    {barplot( obj@eigenvalues, main = \"Eigenvalues\" )}\n\n#a scatterplot of the common factor scores\n    if (input$var == \"Common factor scores\")\n    {compromise_plot(obj)}\n\n#a scatterplot of the partial factors scores\n    if (input$var == \"Partial factors scores\")\n    {pfs_plot(obj,as.numeric(input$guy))}\n\n#a scatterplot of theloadings\n    if (input$var == \"Loadings\")\n      {loadings_plot(obj,as.numeric(input$guy))}\n  })\n\n})\n",
+    "created" : 1480358668132.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2072291573",
+    "id" : "B42601C2",
+    "lastKnownWriteTime" : 1480564871,
+    "last_content_update" : 1480564871884,
+    "path" : "C:/Users/admin/Desktop/MFA/MFA/server.R",
+    "project_path" : "MFA/server.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

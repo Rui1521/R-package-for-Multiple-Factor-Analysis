@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' summaries of eigenvalues\n#'\n#' returns a table with the singular values, the eigenvalues, cumulative, percentage of intertia, cumulative percentage of inertia, for all the extracted components.\n#'\n#' s: the vector of singular values\n#' e: the vector of eigenvalues\n#' n: the length of s\n#' i: the percentage of inertia\n#' c1: cumulative sums of eigenvalues\n#' C2: cumulative sums of the percentage of inertia\n#' sum: matrix of Eigenvalues and Percentage of Explained Inertia of the MFA\n#' @return a table\n#'\n#'\nsumeigen <- function(Mfa){\n  s = Mfa@singularValue\n  e = Mfa@eigenvalues\n  n = length(s)\n  c1 = cumsum(e)\n  i = round(e/c1[n]*100)\n  c2 = cumsum(i)\n  sum <- rbind(s, e, c1, i, c2)\n  colnames(sum) <- 1:n\n  rownames(sum) <- c(\"Singular value(δ)\", \"Eigenvalue(λ = δ^2)\", \"Cumulative\", \"%Inertia(τ)\", \"Cumulative\")\n  sum = as.table(sum)\n  sum\n}\n\n",
+    "created" : 1519938729397.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2892132679",
+    "id" : "B7AFF3BF",
+    "lastKnownWriteTime" : 1480363218,
+    "last_content_update" : 1480363218,
+    "path" : "~/Desktop/MFA/R/Summary.R",
+    "project_path" : "R/Summary.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

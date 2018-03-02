@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#Shinny app(MFA)\n#\n\nlibrary(shiny)\n\nshinyUI(fluidPage(\n\n  titlePanel(\"MFA\"),\n  sidebarLayout(\n    sidebarPanel(\n\n      #a widget to select what to plot\n      selectInput(\"var\",\n                  label = \"Choose a scatterplot display\",\n                  choices = list(\"Eigenvalues\", \"Common factor scores\", \"Partial factors scores\",\n                                 \"Loadings\"),\n                  selected = \"Eigenvalues\"),\n\n      #Choose an expert assessor\n      selectInput(\"guy\",\n                  label = \"Choose an expert\",\n                  choices = 1:10,\n                  selected = 1)\n    ),\n\n\n    # Show a plot of the generated distribution\n    mainPanel(\n       plotOutput(\"distPlot\")\n    )\n  )\n))\n",
+    "created" : 1480358667901.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "80938694",
+    "id" : "36FADB7E",
+    "lastKnownWriteTime" : 1480401308,
+    "last_content_update" : 1480401308981,
+    "path" : "C:/Users/admin/Desktop/MFA/MFA/ui.R",
+    "project_path" : "MFA/ui.R",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

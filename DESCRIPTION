@@ -1,0 +1,23 @@
+Package: mfa
+Type: Package
+Title: Multiple Factor Analysis
+Version: 0.1.0
+Author: Rui Wang
+Maintainer: Rui Wang <wang.rui4@husky.neu.edu>
+Description: A package for multiple factor analysis.
+License: GPL-2 | GPL-3
+LazyData: TRUE
+Collate:
+    'RV.R'
+    'RV_table.R'
+    'classes.R'
+    'ctr_observations.R'
+    'ctr_variables.R'
+    'ctr_tables.R'
+    'mfa.R'
+RoxygenNote: 5.0.1
+Imports:
+    methods
+Suggests:
+    testthat, knitr, rmarkdown
+VignetteBuilder: knitr
